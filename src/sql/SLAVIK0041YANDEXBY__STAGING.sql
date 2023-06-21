@@ -18,7 +18,6 @@ CREATE PROJECTION SLAVIK0041YANDEXBY__STAGING.transactions_projection
     SEGMENTED BY hash(operation_id,transaction_dt) ALL NODES;
 
 
-
 --DROP TABLE IF EXISTS SLAVIK0041YANDEXBY__STAGING.currencies;   
 CREATE TABLE IF NOT EXISTS SLAVIK0041YANDEXBY__STAGING.currencies
     (date_update timestamp, 
