@@ -1,4 +1,4 @@
-CREATE TABLE BOBA1997YANDEXRU__STAGING.transactions (
+CREATE TABLE SLAVIK0041YANDEXBY__STAGING.transactions (
 	operation_id varchar(60),
 	account_number_from int,
 	account_number_to int,
@@ -11,7 +11,7 @@ CREATE TABLE BOBA1997YANDEXRU__STAGING.transactions (
 )
 SEGMENTED BY hash(operation_id, trunc(transaction_dt, 'DD')) ALL NODES;
 
-CREATE PROJECTION BOBA1997YANDEXRU__STAGING.transactions_dates (
+CREATE PROJECTION SLAVIK0041YANDEXBY__STAGING.transactions_dates (
 	operation_id,
 	account_number_from,
 	account_number_to,
@@ -22,11 +22,11 @@ CREATE PROJECTION BOBA1997YANDEXRU__STAGING.transactions_dates (
 	amount,
 	transaction_dt,
 	trn_date
-) AS SELECT *, trunc(transaction_dt, 'DD') as trn_date from BOBA1997YANDEXRU__STAGING.transactions
+) AS SELECT *, trunc(transaction_dt, 'DD') as trn_date from SLAVIK0041YANDEXBY__STAGING.transactions
 ORDER BY trn_date
 SEGMENTED BY hash(operation_id, trunc(transaction_dt, 'DD')) ALL NODES;
 
-CREATE TABLE BOBA1997YANDEXRU__STAGING.currencies (
+CREATE TABLE SLAVIK0041YANDEXBY__STAGING.currencies (
 	date_update TIMESTAMP(0),
 	currency_code int,
 	currency_code_with int,
@@ -34,7 +34,7 @@ CREATE TABLE BOBA1997YANDEXRU__STAGING.currencies (
 )
 ORDER BY date_update;
 
-CREATE TABLE BOBA1997YANDEXRU__DWH.global_metrics (
+CREATE TABLE SLAVIK0041YANDEXBY__DWH.global_metrics (
 	date_update DATE not null,
 	currency_from int not null,
 	amount_total numeric(15,3) not null,
